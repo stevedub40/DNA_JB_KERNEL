@@ -166,7 +166,21 @@ config CPU_FREQ_DEFAULT_GOV_INTERACTIVEX2
   	help
     	  Use the CPUFreq governor 'interactiveX2' as default.
 
+config CPU_FREQ_DEFAULT_GOV_SUPERBAD
+	bool "superbad"
+	select CPU_FREQ_GOV_SUPERBAD
+	select CPU_FREQ_GOV_PERFORMANCE
+	help
+	  Use the CPUFreq governor 'superbad' as default.
+
 endchoice
+
+config CPU_FREQ_GOV_SUPERBAD
+	tristate "'superbad' cpufreq governor"
+	depends on CPU_FREQ
+	help
+	  'superbad' - a "superbad" super smooth rendition of a highly optimized "smartass" governor!
+	  If in doubt, say N.
 
 config CPU_FREQ_GOV_INTERACTIVEX2
 	tristate "'interactiveX2' cpufreq governor"
