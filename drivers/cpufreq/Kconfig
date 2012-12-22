@@ -160,7 +160,21 @@ config CPU_FREQ_DEFAULT_GOV_BRAZILIANWAX
 	help
 	  Use the CPUFreq governor 'brazilianwax' as default.
 
+config CPU_FREQ_DEFAULT_GOV_INTERACTIVEX2
+  	bool "interactiveX"
+  	select CPU_FREQ_GOV_INTERACTIVEX2
+  	help
+    	  Use the CPUFreq governor 'interactiveX2' as default.
+
 endchoice
+
+config CPU_FREQ_GOV_INTERACTIVEX2
+	tristate "'interactiveX2' cpufreq governor"
+	depends on CPU_FREQ
+	help
+	   'interactiveX2' - interactive governor with early suspend support added.
+	    This governor uses hotplug to shutdown and start up cpu1 when suspended.
+	    If in doubt, say N
 
 config CPU_FREQ_GOV_BRAZILIANWAX
 	tristate "'brazilianwax' cpufreq governor"
